@@ -1,3 +1,5 @@
+import { TPlayer } from '../store/game';
+
 const winningCombinations = [
   [0, 1, 2],
   [3, 4, 5],
@@ -9,7 +11,7 @@ const winningCombinations = [
   [2, 4, 6],
 ];
 
-const calculateWinner = (board: string[]) => {
+const calculateWinner = (board: TPlayer[]) => {
   for (let i = 0; i < winningCombinations.length; i++) {
     const [a, b, c] = winningCombinations[i];
 
@@ -17,6 +19,9 @@ const calculateWinner = (board: string[]) => {
       return board[a];
     }
   }
+
+  if (board.every((value) => value !== null)) return 'draw';
+
   return null;
 };
 
