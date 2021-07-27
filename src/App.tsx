@@ -1,5 +1,4 @@
 import React from 'react';
-import { useEffect } from 'react';
 import Confetti from 'react-confetti';
 import './App.css';
 import { calculateWinner } from './utils';
@@ -32,16 +31,14 @@ const App = () => {
     newBoard[idx] = currentPlayer;
 
     dispatch(updateBoard(newBoard));
+
+    const _winner = calculateWinner(newBoard);
+    if (_winner) {
+      dispatch(setWinner(_winner));
+    }
+
     dispatch(togglePlayer());
   };
-
-  useEffect(() => {
-    const winner = calculateWinner(board);
-
-    if (winner) {
-      dispatch(setWinner(winner));
-    }
-  }, [board, dispatch]);
 
   return (
     <div className="App">
