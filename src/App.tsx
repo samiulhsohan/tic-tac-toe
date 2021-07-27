@@ -1,5 +1,6 @@
 import React from 'react';
 import { useEffect } from 'react';
+import Confetti from 'react-confetti';
 import './App.css';
 import { calculateWinner } from './utils';
 import { useAppSelector, useAppDispatch } from './store/hooks';
@@ -13,9 +14,11 @@ import {
   resetGame,
   getScore,
 } from './store/game';
+import { useWindowSize } from './hooks';
 
 const App = () => {
   const dispatch = useAppDispatch();
+  const [width, height] = useWindowSize();
 
   const board = useAppSelector(getBoard);
   const currentPlayer = useAppSelector(getCurrentPlayer);
@@ -42,6 +45,10 @@ const App = () => {
 
   return (
     <div className="App">
+      {winner && winner !== 'draw' && (
+        <Confetti width={width} height={height} />
+      )}
+
       <h1>Winner is {winner}</h1>
       <h1>{currentPlayer}'s turn</h1>
       <h2>
