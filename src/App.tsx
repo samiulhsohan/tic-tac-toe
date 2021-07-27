@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Confetti from 'react-confetti';
 import './App.css';
 import { calculateWinner } from './utils';
@@ -24,6 +24,8 @@ const App = () => {
   const winner = useAppSelector(getWinner);
   const score = useAppSelector(getScore);
 
+  const [loading, setLoading] = useState(true);
+
   const handleClick = (idx: number) => {
     if (board[idx] || winner) return;
 
@@ -40,31 +42,48 @@ const App = () => {
     dispatch(togglePlayer());
   };
 
-  return (
-    <div className="App">
-      {winner && winner !== 'draw' && (
-        <Confetti width={width} height={height} />
-      )}
+  // using ref to ignore useEffect's dependency linting warning
+  const initiate = useRef(() => {});
+  initiate.current = () => {
+    if (winner || board.every((square) => square !== null)) {
+      dispatch(resetGame());
+    }
+    setLoading(false);
+  };
 
-      <h1>Winner is {winner}</h1>
-      <h1>{currentPlayer}'s turn</h1>
-      <h2>
-        cross: {score.cross} || circle: {score.circle}
-      </h2>
+  useEffect(() => {
+    initiate.current();
+  }, []);
 
-      {winner && (
-        <button onClick={() => dispatch(resetGame())}>Reset game</button>
-      )}
+  if (loading) {
+    return <p>Loading</p>;
+  } else {
+    return (
+      <div className="App">
+        {winner && winner !== 'draw' && (
+          <Confetti width={width} height={height} />
+        )}
 
-      <div className="board">
-        {board.map((value, idx) => (
-          <div className="square" key={idx} onClick={() => handleClick(idx)}>
-            {value}
-          </div>
-        ))}
+        <h1>Winner is {winner}</h1>
+        <h1>{currentPlayer}'s turn</h1>
+        <h2>
+          cross: {score.cross} || circle: {score.circle}
+        </h2>
+
+        {winner && (
+          <button onClick={() => dispatch(resetGame())}>Reset game</button>
+        )}
+
+        <div className="board">
+          {board.map((value, idx) => (
+            <div className="square" key={idx} onClick={() => handleClick(idx)}>
+              {value}
+            </div>
+          ))}
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 };
 
 export default App;
