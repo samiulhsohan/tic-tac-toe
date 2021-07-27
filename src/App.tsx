@@ -11,6 +11,7 @@ import {
   setWinner,
   getWinner,
   resetGame,
+  getScore,
 } from './store/game';
 
 const App = () => {
@@ -19,6 +20,7 @@ const App = () => {
   const board = useAppSelector(getBoard);
   const currentPlayer = useAppSelector(getCurrentPlayer);
   const winner = useAppSelector(getWinner);
+  const score = useAppSelector(getScore);
 
   const handleClick = (idx: number) => {
     if (board[idx] || winner) return;
@@ -40,9 +42,16 @@ const App = () => {
 
   return (
     <div className="App">
-      <p>Winner is {winner}</p>
+      <h1>Winner is {winner}</h1>
       <h1>{currentPlayer}'s turn</h1>
-      <button onClick={() => dispatch(resetGame())}>Reset game</button>
+      <h2>
+        cross: {score.cross} || circle: {score.circle}
+      </h2>
+
+      {winner && (
+        <button onClick={() => dispatch(resetGame())}>Reset game</button>
+      )}
+
       <div className="board">
         {board.map((value, idx) => (
           <div className="square" key={idx} onClick={() => handleClick(idx)}>

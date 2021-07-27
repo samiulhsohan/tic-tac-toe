@@ -9,12 +9,20 @@ interface IGame {
   board: TPlayer[];
   winner: TWinner;
   currentPlayer: TPlayer;
+  score: {
+    cross: 0;
+    circle: 0;
+  };
 }
 
 const initialState: IGame = {
   board: Array(9).fill(null),
   winner: null,
   currentPlayer: 'cross',
+  score: {
+    cross: 0,
+    circle: 0,
+  },
 };
 
 const slice = createSlice({
@@ -30,6 +38,9 @@ const slice = createSlice({
     },
     winnerSet: (state: IGame, action: PayloadAction<TWinner>) => {
       state.winner = action.payload;
+
+      if (state.winner === 'circle') ++state.score.circle;
+      if (state.winner === 'cross') ++state.score.cross;
     },
     gameReset: (state: IGame) => {
       state.board = initialState.board;
@@ -63,4 +74,9 @@ export const getCurrentPlayer = createSelector(
 export const getWinner = createSelector(
   (state: RootState) => state.game.winner,
   (winner) => winner
+);
+
+export const getScore = createSelector(
+  (state: RootState) => state.game.score,
+  (score) => score
 );
