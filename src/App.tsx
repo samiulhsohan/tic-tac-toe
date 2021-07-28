@@ -6,6 +6,8 @@ import Board from './components/Board';
 import GameInfo from './components/GameInfo';
 import GameControl from './components/GameControl';
 
+(window as any).soundManager.setup({ debugMode: false });
+
 const App = () => {
   const dispatch = useAppDispatch();
 

@@ -1,4 +1,5 @@
 import React from 'react';
+import Sound from 'react-sound';
 import { CSSTransition } from 'react-transition-group';
 import Confetti from 'react-confetti';
 import { useWindowSize } from '../hooks';
@@ -23,7 +24,16 @@ const WinnerModal = () => {
   return (
     <div>
       {winner && winner !== 'draw' && (
-        <Confetti width={width} height={height} gravity={0.12} numberOfPieces={250} />
+        <>
+          <Confetti
+            width={width}
+            height={height}
+            gravity={0.12}
+            numberOfPieces={250}
+          />
+
+          <Sound url="/win.mp3" playStatus={winner ? 'PLAYING' : 'STOPPED'} />
+        </>
       )}
 
       <CSSTransition
