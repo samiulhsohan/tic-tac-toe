@@ -8,7 +8,7 @@ const GameControl = () => {
 
   const handleReset = () => {
     dispatch(resetGame());
-    toast.success('Game has been rest!');
+    toast.success('Game has been reset!');
   };
 
   const handleShowHistory = () => dispatch(toggleShowHistory());
