@@ -6,7 +6,7 @@ const GameControl = () => {
   const dispatch = useAppDispatch();
 
   return (
-    <div>
+    <div className="game-control">
       <button onClick={() => dispatch(restartGame())}>Restart Game</button>
       <button onClick={() => dispatch(resetGame())}>Reset Game</button>
     </div>

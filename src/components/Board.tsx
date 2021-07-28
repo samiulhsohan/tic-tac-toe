@@ -9,6 +9,7 @@ import {
 } from '../store/game';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
 import calculateWinner from '../utils/winner';
+import Square from './Square';
 
 const Board = () => {
   const dispatch = useAppDispatch();
@@ -28,17 +29,15 @@ const Board = () => {
     const _winner = calculateWinner(newBoard);
     if (_winner) {
       dispatch(setWinner(_winner));
+    } else {
+      dispatch(togglePlayer());
     }
-
-    dispatch(togglePlayer());
   };
 
   return (
     <div className="board">
       {board.map((value, idx) => (
-        <div className="square" key={idx} onClick={() => handleClick(idx)}>
-          {value}
-        </div>
+        <Square {...{ value }} {...{ idx }} onClick={handleClick} key={idx} />
       ))}
     </div>
   );

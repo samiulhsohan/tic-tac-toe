@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAppSelector, useAppDispatch } from './store/hooks';
-import { getBoard, getWinner, resetGame } from './store/game';
+import { getBoard, getWinner, restartGame } from './store/game';
 import Board from './components/Board';
 import GameInfo from './components/GameInfo';
 import GameControl from './components/GameControl';
@@ -17,7 +17,7 @@ const App = () => {
   const initiate = useRef(() => {});
   initiate.current = () => {
     if (winner || board.every((square) => square !== null)) {
-      dispatch(resetGame());
+      dispatch(restartGame());
     }
     setLoading(false);
   };
@@ -30,7 +30,7 @@ const App = () => {
     return <p>Loading</p>;
   } else {
     return (
-      <div>
+      <div className="container">
         <div>
           <GameInfo />
           <Board />

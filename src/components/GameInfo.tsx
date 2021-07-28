@@ -1,4 +1,6 @@
 import React from 'react';
+import CircleIcon from '../icons/CircleIcon';
+import CrossIcon from '../icons/CrossIcon';
 import { getCurrentPlayer, getWinner, getScore } from '../store/game';
 import { useAppSelector } from '../store/hooks';
 
@@ -8,12 +10,31 @@ const GameInfo = () => {
   const score = useAppSelector(getScore);
 
   return (
-    <div>
-      <h1>Winner is {winner}</h1>
-      <h1>{currentPlayer}'s turn</h1>
-      <h2>
-        cross: {score.cross} || circle: {score.circle}
-      </h2>
+    <div className="game-info">
+      <div className="game-info__score">
+        <div
+          className={
+            'game-info__score__player ' +
+            (currentPlayer === 'cross'
+              ? 'game-info__score__player-active-cross'
+              : '')
+          }
+        >
+          <CrossIcon color="#05f" size="2rem" />
+          <p>{score.cross}</p>
+        </div>
+        <div
+          className={
+            'game-info__score__player ' +
+            (currentPlayer === 'circle'
+              ? 'game-info__score__player-active-circle'
+              : '')
+          }
+        >
+          <CircleIcon color="#05f" size="2rem" />
+          <p>{score.circle}</p>
+        </div>
+      </div>
     </div>
   );
 };
