@@ -1,7 +1,8 @@
 import { combineReducers } from 'redux';
-import { gameReducer, uiReducer } from '.';
+import game from './game';
+import ui from './ui';
 
 export default combineReducers({
-  game: gameReducer,
-  ui: uiReducer,
+  game,
+  ui,
 });
