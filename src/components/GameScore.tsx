@@ -15,7 +15,7 @@ const GameScore = ({ player, currentPlayer, score }: GameScoreProps) => {
       className={
         'game-info__score__player ' +
         (player === currentPlayer
-          ? `game-info__score__player-active-${player}`
+          ? `game-info__score__player--active-${player}`
           : '')
       }
     >

@@ -132,29 +132,30 @@ button {
         font-size: 2rem;
         color: #4e4e4e;
       }
-    }
 
-    &__player-active-cross {
-      box-shadow: 0px 3px 0 #fff;
-      background: var(--color-cross);
+      &--active-cross {
+        box-shadow: 0px 3px 0 #fff;
+        background: var(--color-cross);
 
-      svg {
-        fill: #fff;
-      }
-      p {
-        color: #fff;
-      }
-    }
-    &__player-active-circle {
-      background: var(--color-circle);
-      box-shadow: 0px 3px 0 #fff;
-
-      svg {
-        fill: #fff;
+        svg {
+          fill: #fff;
+        }
+        p {
+          color: #fff;
+        }
       }
 
-      p {
-        color: #fff;
+      &--active-circle {
+        background: var(--color-circle);
+        box-shadow: 0px 3px 0 #fff;
+
+        svg {
+          fill: #fff;
+        }
+
+        p {
+          color: #fff;
+        }
       }
     }
   }
