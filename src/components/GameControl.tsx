@@ -17,8 +17,12 @@ const GameControl = () => {
 
   return (
     <div className="game-control">
-      <Button onClick={handleReset}>Reset Game</Button>
-      <Button onClick={handleShowHistory}>Action History</Button>
+      <Button onClick={handleReset} variant="danger">
+        Reset Game
+      </Button>
+      <Button onClick={handleShowHistory} variant="primary">
+        Action History
+      </Button>
     </div>
   );
 };

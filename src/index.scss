@@ -47,15 +47,26 @@ button {
   border-radius: 0.4rem;
 
   &--primary {
-    background-color: #05f;
+    background-color: hsl(220, 100%, 35%);
     color: #fff;
-    box-shadow: 0 5px 0 #002f8c;
+    box-shadow: 0 5px 0 hsl(220, 100%, 20%);
   }
 
   &--secondary {
-    background-color: #fff;
+    background-color: hsl(0, 0%, 100%);
     color: #000;
-    box-shadow: 0 5px 0 #b5b5b5;
+    box-shadow: 0 5px 0 hsl(0, 0%, 75%);
+  }
+
+  &--danger {
+    background-color: hsl(340, 100%, 28%);
+    color: #fff;
+    box-shadow: 0 5px 0 hsl(340, 100%, 18%);
+  }
+
+  &:active {
+    box-shadow: none;
+    transform: translateY(5px);
   }
 }
 
