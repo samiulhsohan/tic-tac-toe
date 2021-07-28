@@ -1,8 +1,6 @@
 import React from 'react';
-import { getCurrentPlayer, getScore } from '../store/game';
-import { useAppSelector } from '../store/hooks';
-import GameScore from './GameScore';
-import WinnerModal from './WinnerModal';
+import { getCurrentPlayer, getScore, useAppSelector } from '../store';
+import { GameScore, WinnerModal } from '.';
 
 const GameInfo = () => {
   const currentPlayer = useAppSelector(getCurrentPlayer);

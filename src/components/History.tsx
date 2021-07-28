@@ -1,8 +1,6 @@
-import React from 'react';
-import { useAppSelector } from '../store/hooks';
-import { getHistory } from '../store/game';
+import React, { useEffect } from 'react';
 import { useRef } from 'react';
-import { useEffect } from 'react';
+import { useAppSelector, getHistory } from '../store';
 
 const History = () => {
   const history = useAppSelector(getHistory);

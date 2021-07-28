@@ -1,6 +1,6 @@
 import { PayloadAction, createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { RootState } from './configureStore';
+import { RootState } from '.';
 
 export type TPlayer = 'cross' | 'circle';
 export type TWinner = null | TPlayer | 'draw';

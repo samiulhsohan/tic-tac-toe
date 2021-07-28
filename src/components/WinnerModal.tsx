@@ -3,11 +3,14 @@ import Sound from 'react-sound';
 import { CSSTransition } from 'react-transition-group';
 import Confetti from 'react-confetti';
 import { useWindowSize } from '../hooks';
-import CircleIcon from '../icons/CircleIcon';
-import CrossIcon from '../icons/CrossIcon';
-import { getWinner, restartGame } from '../store/game';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import Button from './Button';
+import { CircleIcon, CrossIcon } from '../icons';
+import {
+  getWinner,
+  restartGame,
+  useAppSelector,
+  useAppDispatch,
+} from '../store';
+import { Button } from '.';
 
 const WinnerModal = () => {
   const dispatch = useAppDispatch();

@@ -1,4 +1,4 @@
-import { TPlayer } from '../store/game';
+import { TPlayer } from '../store';
 
 const winningCombinations = [
   [0, 1, 2],

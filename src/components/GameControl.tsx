@@ -1,9 +1,7 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-import { resetGame } from '../store/game';
-import { useAppDispatch } from '../store/hooks';
-import { toggleShowHistory } from '../store/ui';
-import Button from './Button';
+import { resetGame, useAppDispatch, toggleShowHistory } from '../store';
+import { Button } from '.';
 
 const GameControl = () => {
   const dispatch = useAppDispatch();

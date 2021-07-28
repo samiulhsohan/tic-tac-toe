@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 import { createSelector } from 'reselect';
-import { RootState } from './configureStore';
+import { RootState } from '.';
 
 interface IUI {
   showHistory: boolean;

@@ -1,12 +1,13 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Toaster } from 'react-hot-toast';
-import { useAppSelector, useAppDispatch } from './store/hooks';
-import { getWinner, restartGame } from './store/game';
-import Board from './components/Board';
-import GameInfo from './components/GameInfo';
-import GameControl from './components/GameControl';
-import History from './components/History';
-import { getShowHistory } from './store/ui';
+import {
+  useAppSelector,
+  useAppDispatch,
+  getWinner,
+  restartGame,
+  getShowHistory,
+} from './store';
+import { Board, GameInfo, GameControl, History } from './components';
 
 (window as any).soundManager.setup({ debugMode: false });
 

@@ -7,10 +7,11 @@ import {
   setWinner,
   togglePlayer,
   updateBoard,
-} from '../store/game';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
-import calculateWinner from '../utils/winner';
-import Square from './Square';
+  useAppSelector,
+  useAppDispatch,
+} from '../store';
+import { calculateWinner } from '../utils';
+import { Square } from '.';
 
 const Board = () => {
   const dispatch = useAppDispatch();

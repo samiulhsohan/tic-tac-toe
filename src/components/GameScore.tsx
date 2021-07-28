@@ -1,7 +1,6 @@
 import React from 'react';
-import CircleIcon from '../icons/CircleIcon';
-import CrossIcon from '../icons/CrossIcon';
-import { TPlayer } from '../store/game';
+import { CircleIcon, CrossIcon } from '../icons';
+import { TPlayer } from '../store';
 
 interface GameScoreProps {
   player: TPlayer;
