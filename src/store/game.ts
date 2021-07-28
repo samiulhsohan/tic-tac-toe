@@ -46,12 +46,23 @@ const slice = createSlice({
       state.board = initialState.board;
       state.currentPlayer = initialState.currentPlayer;
       state.winner = initialState.winner;
+      state.score = initialState.score;
+    },
+    gameRestarted: (state: IGame) => {
+      state.board = initialState.board;
+      state.currentPlayer = initialState.currentPlayer;
+      state.winner = initialState.winner;
     },
   },
 });
 
-export const { boardUpdated, playerToggled, winnerSet, gameReset } =
-  slice.actions;
+export const {
+  boardUpdated,
+  playerToggled,
+  winnerSet,
+  gameReset,
+  gameRestarted,
+} = slice.actions;
 export default slice.reducer;
 
 // Action creators
@@ -59,6 +70,7 @@ export const updateBoard = (board: TPlayer[]) => boardUpdated(board);
 export const togglePlayer = () => playerToggled();
 export const setWinner = (winner: TWinner) => winnerSet(winner);
 export const resetGame = () => gameReset();
+export const restartGame = () => gameRestarted();
 
 // Selector
 export const getBoard = createSelector(

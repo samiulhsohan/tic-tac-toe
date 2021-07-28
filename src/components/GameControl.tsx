@@ -1,5 +1,5 @@
 import React from 'react';
-import { resetGame } from '../store/game';
+import { resetGame, restartGame } from '../store/game';
 import { useAppDispatch } from '../store/hooks';
 
 const GameControl = () => {
@@ -7,7 +7,7 @@ const GameControl = () => {
 
   return (
     <div>
-      <button onClick={() => {}}>Restart Game</button>
+      <button onClick={() => dispatch(restartGame())}>Restart Game</button>
       <button onClick={() => dispatch(resetGame())}>Reset Game</button>
     </div>
   );
