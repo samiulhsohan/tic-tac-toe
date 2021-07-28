@@ -29,9 +29,9 @@ const Board = () => {
     const _winner = calculateWinner(newBoard);
     if (_winner) {
       dispatch(setWinner(_winner));
-    } else {
-      dispatch(togglePlayer());
     }
+
+    dispatch(togglePlayer());
   };
 
   return (

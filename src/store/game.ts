@@ -50,7 +50,6 @@ const slice = createSlice({
     },
     gameRestarted: (state: IGame) => {
       state.board = initialState.board;
-      state.currentPlayer = initialState.currentPlayer;
       state.winner = initialState.winner;
     },
   },
