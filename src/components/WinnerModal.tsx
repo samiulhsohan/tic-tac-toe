@@ -32,7 +32,10 @@ const WinnerModal = () => {
             numberOfPieces={250}
           />
 
-          <Sound url="/win.mp3" playStatus={winner ? 'PLAYING' : 'STOPPED'} />
+          <Sound
+            url="/assets/win.mp3"
+            playStatus={winner ? 'PLAYING' : 'STOPPED'}
+          />
         </>
       )}
 
