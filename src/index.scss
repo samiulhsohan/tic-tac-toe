@@ -48,6 +48,8 @@ button {
 
   &--primary {
     background-color: #05f;
+    color: #fff;
+    box-shadow: 0 5px 0 #002f8c;
   }
 
   &--secondary {
@@ -103,11 +105,6 @@ button {
   justify-content: center;
 
   button {
-    background-color: #05f;
-    color: #fff;
-    border: 0;
-    width: 13rem;
-    height: 4.2rem;
     margin: 0 1rem;
   }
 }
