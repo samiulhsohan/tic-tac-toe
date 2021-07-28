@@ -1,16 +1,11 @@
 import React from 'react';
 import toast from 'react-hot-toast';
-import { resetGame, restartGame } from '../store/game';
+import { resetGame } from '../store/game';
 import { useAppDispatch } from '../store/hooks';
 import Button from './Button';
 
 const GameControl = () => {
   const dispatch = useAppDispatch();
-
-  const handleRestart = () => {
-    dispatch(restartGame());
-    toast.success('Game restarted!');
-  };
 
   const handleReset = () => {
     dispatch(resetGame());
@@ -19,7 +14,6 @@ const GameControl = () => {
 
   return (
     <div className="game-control">
-      <Button onClick={handleRestart}>Restart Game</Button>
       <Button onClick={handleReset}>Reset Game</Button>
     </div>
   );
