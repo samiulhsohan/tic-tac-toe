@@ -12,8 +12,12 @@ interface SquareProps {
 const Square = ({ value, idx, onClick }: SquareProps) => {
   return (
     <div className="square" onClick={() => onClick(idx)}>
-      {value === 'cross' && <CrossIcon size="6rem" color="#ffb100" />}
-      {value === 'circle' && <CircleIcon size="6rem" color="#00dea1" />}
+      {value === 'cross' && (
+        <CrossIcon size="6rem" color="var(--color-cross)" />
+      )}
+      {value === 'circle' && (
+        <CircleIcon size="6rem" color="var(--color-circle)" />
+      )}
     </div>
   );
 };

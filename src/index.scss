@@ -5,7 +5,7 @@
   --square-size: 12rem;
   --color-cross: #ffb100;
   --color-circle: #00dea1;
-  --color-draw: #a900ff;
+  --modal-background: #a900ff;
 }
 
 * {
@@ -193,6 +193,7 @@ button {
       align-items: center;
       justify-content: center;
       flex-direction: column;
+      background-color: var(--modal-background);
 
       svg {
         margin-bottom: 1.5rem;

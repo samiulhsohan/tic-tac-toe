@@ -15,12 +15,6 @@ const WinnerModal = () => {
 
   const winner = useAppSelector(getWinner);
 
-  const getBackgroundColor = () => {
-    if (winner === 'cross') return 'var(--color-cross)';
-    if (winner === 'circle') return 'var(--color-circle)';
-    return 'var(--color-draw)';
-  };
-
   return (
     <div>
       {winner && winner !== 'draw' && (
@@ -44,10 +38,7 @@ const WinnerModal = () => {
         unmountOnExit
       >
         <div className="game-info__winner">
-          <div
-            className="game-info__winner__info"
-            style={{ backgroundColor: getBackgroundColor() }}
-          >
+          <div className="game-info__winner__info">
             {winner === 'cross' && <CrossIcon size="3rem" />}
             {winner === 'circle' && <CircleIcon size="3rem" />}
 
