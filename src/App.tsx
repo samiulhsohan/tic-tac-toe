@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Toaster } from 'react-hot-toast';
 import { useAppSelector, useAppDispatch } from './store/hooks';
 import { getBoard, getWinner, restartGame } from './store/game';
 import Board from './components/Board';
@@ -36,6 +37,8 @@ const App = () => {
           <Board />
           <GameControl />
         </div>
+
+        <Toaster toastOptions={{ style: { fontSize: '1.6rem' } }} />
       </div>
     );
   }
