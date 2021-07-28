@@ -24,20 +24,18 @@ const WinnerModal = () => {
   return (
     <div>
       {winner && winner !== 'draw' && (
-        <>
-          <Confetti
-            width={width}
-            height={height}
-            gravity={0.12}
-            numberOfPieces={250}
-          />
-
-          <Sound
-            url="/assets/win.mp3"
-            playStatus={winner ? 'PLAYING' : 'STOPPED'}
-          />
-        </>
+        <Confetti
+          width={width}
+          height={height}
+          gravity={0.12}
+          numberOfPieces={250}
+        />
       )}
+
+      <Sound
+        url="/assets/win.mp3"
+        playStatus={winner && winner !== 'draw' ? 'PLAYING' : 'STOPPED'}
+      />
 
       <CSSTransition
         in={!!winner}
