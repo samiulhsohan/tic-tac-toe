@@ -3,7 +3,7 @@ import Icon from './icon';
 import { TIconProps } from './types';
 
 const CircleIcon = (props: TIconProps) => {
-  const { title = 'Cross', size, color = '#FFF', ...otherProps } = props;
+  const { title = 'Circle', size, color = '#FFF', ...otherProps } = props;
   return (
     <Icon
       viewBox="0 0 24 24"

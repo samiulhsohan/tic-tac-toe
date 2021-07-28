@@ -31,7 +31,7 @@ const App = () => {
   } else {
     return (
       <div className="container">
-        <div>
+        <div className="game">
           <GameInfo />
           <Board />
           <GameControl />

@@ -3,6 +3,9 @@
 :root {
   font-size: 10px;
   --square-size: 12rem;
+  --color-cross: #ffb100;
+  --color-circle: #00dea1;
+  --color-draw: #a900ff;
 }
 
 * {
@@ -11,7 +14,7 @@
 
 html,
 body {
-  background-color: #000935;
+  background-color: #000417;
 }
 
 body {
@@ -33,6 +36,25 @@ button {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.button {
+  border: 0;
+  width: 13rem;
+  height: 4.2rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  border-radius: 0.4rem;
+
+  &--primary {
+    background-color: #05f;
+  }
+
+  &--secondary {
+    background-color: #fff;
+    color: #000;
+    box-shadow: 0 5px 0 #b5b5b5;
+  }
 }
 
 .board {
@@ -117,7 +139,7 @@ button {
 
     &__player-active-cross {
       box-shadow: 0px 3px 0 #fff;
-      background: #ffb100;
+      background: var(--color-cross);
 
       svg {
         fill: #fff;
@@ -127,7 +149,7 @@ button {
       }
     }
     &__player-active-circle {
-      background: #00dea1;
+      background: var(--color-circle);
       box-shadow: 0px 3px 0 #fff;
 
       svg {
@@ -139,4 +161,66 @@ button {
       }
     }
   }
+
+  &__winner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(#000, 0.7);
+
+    &__info {
+      width: 30rem;
+      height: 20rem;
+      border-radius: 0.8rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+
+      svg {
+        margin-bottom: 1.5rem;
+      }
+
+      p {
+        font-size: 2.4rem;
+        color: #fff;
+        margin: 0;
+      }
+
+      &__cta {
+        margin-top: 2rem;
+      }
+    }
+  }
+}
+
+.station-animation-enter {
+  opacity: 0;
+  transform: scale(0.9);
+  transform-origin: top center;
+}
+
+.station-animation-enter-active {
+  opacity: 1;
+  transform: translateX(0);
+  transition: opacity 300ms, transform 300ms;
+}
+
+.station-animation-exit {
+  opacity: 1;
+}
+
+.station-animation-exit-active {
+  opacity: 0;
+  transform-origin: top center;
+  transform: scale(0.9);
+  transition: opacity 300ms, transform 300ms;
 }
