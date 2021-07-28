@@ -28,7 +28,7 @@ const App = () => {
   }, []);
 
   if (loading) {
-    return <p>Loading</p>;
+    return null;
   } else {
     return (
       <div className="container">
