@@ -32,10 +32,12 @@ button {
 
 .container {
   width: 100vw;
-  height: 100vh;
-  display: flex;
+  min-height: 100vh;
+  display: grid;
   align-items: center;
   justify-content: center;
+  column-gap: 20rem;
+  grid-auto-flow: column;
 }
 
 .button {
@@ -213,7 +215,6 @@ button {
 }
 
 .history {
-  margin-left: 25rem;
   height: calc(100vh - 10rem);
   width: 35.2rem;
   border-radius: 1.2rem;
@@ -273,4 +274,12 @@ button {
   transform-origin: top center;
   transform: scale(0.9);
   transition: opacity 300ms, transform 300ms;
+}
+
+@media screen and (max-width: 1000px) {
+  .container {
+    grid-auto-flow: row;
+    row-gap: 10rem;
+    padding: 10rem 0;
+  }
 }

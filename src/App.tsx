@@ -6,6 +6,7 @@ import Board from './components/Board';
 import GameInfo from './components/GameInfo';
 import GameControl from './components/GameControl';
 import History from './components/History';
+import { getShowHistory } from './store/ui';
 
 (window as any).soundManager.setup({ debugMode: false });
 
@@ -13,6 +14,7 @@ const App = () => {
   const dispatch = useAppDispatch();
 
   const winner = useAppSelector(getWinner);
+  const showHistory = useAppSelector(getShowHistory);
 
   const [loading, setLoading] = useState(true);
 
@@ -33,14 +35,16 @@ const App = () => {
     return null;
   } else {
     return (
-      <div className="container">
-        <div className="game">
-          <GameInfo />
-          <Board />
-          <GameControl />
-        </div>
+      <div>
+        <div className="container">
+          <div className="game">
+            <GameInfo />
+            <Board />
+            <GameControl />
+          </div>
 
-        <History />
+          {showHistory && <History />}
+        </div>
 
         <Toaster toastOptions={{ style: { fontSize: '1.6rem' } }} />
       </div>
