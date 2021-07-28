@@ -1,5 +1,6 @@
 import React from 'react';
 import {
+  addHistory,
   getBoard,
   getCurrentPlayer,
   getWinner,
@@ -25,10 +26,23 @@ const Board = () => {
     newBoard[idx] = currentPlayer;
 
     dispatch(updateBoard(newBoard));
+    dispatch(
+      addHistory({
+        type: 'MOVE',
+        player: currentPlayer,
+        move: idx,
+      })
+    );
 
     const _winner = calculateWinner(newBoard);
     if (_winner) {
       dispatch(setWinner(_winner));
+
+      _winner === 'draw'
+        ? dispatch(addHistory({ type: 'DRAW' }))
+        : dispatch(addHistory({ type: 'WON', player: _winner }));
+
+      dispatch(addHistory({ type: 'START' }));
     }
 
     dispatch(togglePlayer());

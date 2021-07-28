@@ -5,6 +5,7 @@ import { getWinner, restartGame } from './store/game';
 import Board from './components/Board';
 import GameInfo from './components/GameInfo';
 import GameControl from './components/GameControl';
+import History from './components/History';
 
 (window as any).soundManager.setup({ debugMode: false });
 
@@ -38,6 +39,8 @@ const App = () => {
           <Board />
           <GameControl />
         </div>
+
+        <History />
 
         <Toaster toastOptions={{ style: { fontSize: '1.6rem' } }} />
       </div>

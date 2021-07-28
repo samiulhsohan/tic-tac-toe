@@ -200,6 +200,46 @@ button {
   }
 }
 
+.history {
+  margin-left: 25rem;
+  height: calc(100vh - 10rem);
+  width: 35.2rem;
+  border-radius: 1.2rem;
+  background-color: #111423;
+  overflow-y: scroll;
+
+  &__title {
+    color: #fff;
+    position: sticky;
+    top: 0;
+    background: #1c1f2f;
+    padding: 1.5rem;
+    font-size: 1.8rem;
+    border-radius: 0.8rem;
+    margin: 0 0 1rem 0;
+  }
+
+  &__emoji {
+    line-height: 0;
+  }
+
+  p {
+    color: #e4e4e4;
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    padding: 0 1.6rem;
+
+    &::first-letter {
+      text-transform: uppercase;
+    }
+  }
+
+  hr {
+    border: 1px solid #353a50;
+    margin: 3rem 0;
+  }
+}
+
 .winner-animation-enter {
   opacity: 0;
   transform: scale(0.9);

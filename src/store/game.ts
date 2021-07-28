@@ -4,11 +4,19 @@ import { RootState } from './configureStore';
 
 export type TPlayer = 'cross' | 'circle';
 export type TWinner = null | TPlayer | 'draw';
+type THistoryType = 'START' | 'WON' | 'DRAW' | 'MOVE';
+
+interface IHistory {
+  type: THistoryType;
+  player?: TPlayer;
+  move?: number;
+}
 
 interface IGame {
   board: TPlayer[];
   winner: TWinner;
   currentPlayer: TPlayer;
+  history: IHistory[];
   score: {
     cross: 0;
     circle: 0;
@@ -19,6 +27,7 @@ const initialState: IGame = {
   board: Array(9).fill(null),
   winner: null,
   currentPlayer: 'cross',
+  history: [{ type: 'START' }],
   score: {
     cross: 0,
     circle: 0,
@@ -47,10 +56,14 @@ const slice = createSlice({
       state.currentPlayer = initialState.currentPlayer;
       state.winner = initialState.winner;
       state.score = initialState.score;
+      state.history = initialState.history;
     },
     gameRestarted: (state: IGame) => {
       state.board = initialState.board;
       state.winner = initialState.winner;
+    },
+    historyAdded: (state: IGame, action: PayloadAction<IHistory>) => {
+      state.history.push(action.payload);
     },
   },
 });
@@ -61,6 +74,7 @@ export const {
   winnerSet,
   gameReset,
   gameRestarted,
+  historyAdded,
 } = slice.actions;
 export default slice.reducer;
 
@@ -70,6 +84,7 @@ export const togglePlayer = () => playerToggled();
 export const setWinner = (winner: TWinner) => winnerSet(winner);
 export const resetGame = () => gameReset();
 export const restartGame = () => gameRestarted();
+export const addHistory = (history: IHistory) => historyAdded(history);
 
 // Selector
 export const getBoard = createSelector(
@@ -90,4 +105,9 @@ export const getWinner = createSelector(
 export const getScore = createSelector(
   (state: RootState) => state.game.score,
   (score) => score
+);
+
+export const getHistory = createSelector(
+  (state: RootState) => state.game.history,
+  (history) => history
 );
