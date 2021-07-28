@@ -51,7 +51,7 @@ const WinnerModal = () => {
             {winner === 'cross' && <CrossIcon size="3rem" />}
             {winner === 'circle' && <CircleIcon size="3rem" />}
 
-            <p>{winner === 'draw' ? "It's a draw!" : 'Won!'}</p>
+            {winner && <p>{winner === 'draw' ? "It's a draw!" : 'Won!'}</p>}
 
             <div className="game-info__winner__info__cta">
               <Button
